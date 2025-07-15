@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>المهندس محمد العامري | خبير الشبكات والسيرفرات</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- الوضع الليلي/النهاري: متغيرات ألوان -->
+  <style>
+    :root {
+      --main-bg: #23272F;
+      --main-bg-gradient: linear-gradient(135deg, #23272F 60%, #2196F3 100%);
+      --main-card: #181818;
+      --main-header: #23272F;
+      --main-text: #fff;
+      --main-secondary: #222;
+      --main-accent: #2196F3;
+      --main-accent2: #00B4D8;
+      --main-btn: linear-gradient(90deg, #38B000 40%, #00B4D8 100%);
+      --main-btn-hover: linear-gradient(90deg, #00B4D8 10%, #7209B7 90%);
+      --main-shadow: #2196F355;
+      --main-footer: #181818;
+      --main-muted: #AAAAAA;
+      --main-success: #38B000;
+      --main-whatsapp: #38B000;
+      --main-whatsapp-hover: #00B4D8;
+      --main-border: #222;
+    }
+    body.light {
+      --main-bg: #e9f6ff;
+      --main-bg-gradient: linear-gradient(135deg, #e9f6ff 60%, #38B000 100%);
+      --main-card: #fff;
+      --main-header: #fff;
+      --main-text: #212121;
+      --main-secondary: #f1f5f9;
+      --main-accent: #2196F3;
+      --main-accent2: #38B000;
+      --main-btn: linear-gradient(90deg, #00B4D8 10%, #38B000 100%);
+      --main-btn-hover: linear-gradient(90deg, #38B000 10%, #2196F3 90%);
+      --main-shadow: #38B00044;
+      --main-footer: #e0e7ef;
+      --main-muted: #555;
+      --main-success: #38B000;
+      --main-whatsapp: #38B000;
+      --main-whatsapp-hover: #2196F3;
+      --main-border: #d1d5db;
+    }
+    body {
+      font-family: 'Tajawal', Arial, sans-serif;
+      background: var(--main-bg-gradient);
+      color: var(--main-text);
+      scroll-behavior: smooth;
+      transition: background 0.3s, color 0.3s;
+    }
+    .gradient-text {
+      background: linear-gradient(90deg,var(--main-accent) 10%,var(--main-accent2) 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .img-animate {
+      animation: float 2s infinite alternate;
+      box-shadow: 0 4px 24px var(--main-shadow);
+    }
+    @keyframes float {
+      to { transform: translateY(-10px) scale(1.04);}
+    }
+    .card-hover {
+      border-color: var(--main-border);
+      background: var(--main-card);
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    }
+    .card-hover:hover {
+      box-shadow: 0 8px 24px var(--main-shadow);
+      transform: translateY(-6px) scale(1.03);
+      border-color: var(--main-accent);
+    }
+    .btn-main {
+      background: var(--main-btn);
+      color: var(--main-text);
+      font-weight: bold;
+      border-radius: 2rem;
+      padding: 0.75rem 2rem;
+      box-shadow: 0 4px 16px var(--main-shadow);
+      transition: background 0.2s, transform 0.2s;
+      display: inline-block;
+      border: none;
+      outline: none;
+      cursor: pointer;
+    }
+    .btn-main:hover {
+      background: var(--main-btn-hover);
+      transform: scale(1.05);
+    }
+    .nav-link {
+      transition: color .2s;
+    }
+    .nav-link:hover, .nav-link.active {
+      color: var(--main-success) !important;
+    }
+    .icon-animate {
+      animation: bounce 1.2s infinite alternate;
+    }
+    @keyframes bounce {
+      to { transform: translateY(-8px);}
+    }
+    .whatsapp-fixed {
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      z-index: 999;
+      width: 56px;
+      height: 56px;
+      background: var(--main-whatsapp);
+      color: #fff;
+      border-radius: 50%;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 24px var(--main-shadow);
+      transition: background .2s, transform .2s;
+    }
+    .whatsapp-fixed:hover {
+      background: var(--main-whatsapp-hover);
+      transform: scale(1.1);
+    }
+    .bg-section, .bg-card {
+      background: var(--main-card) !important;
+    }
+    .bg-header {
+      background: var(--main-header) !important;
+    }
+    .footer-custom {
+      background: var(--main-footer) !important;
+      color: var(--main-muted);
+      transition: background 0.3s, color 0.3s;
+    }
+    .input-custom {
+      background: var(--main-secondary) !important;
+      color: var(--main-text) !important;
+      border: 1px solid var(--main-border);
+      transition: background 0.3s, color 0.3s, border-color 0.3s;
+    }
+    .input-custom:focus {
+      outline: none;
+      border-color: var(--main-accent2);
+      box-shadow: 0 0 0 2px var(--main-accent2)44;
+    }
+    .form-alert {
+      color: var(--main-success);
+      font-weight: bold;
+    }
+    /* Responsive tweaks for very small screens */
+    @media (max-width: 480px) {
+      .img-animate { width: 72px !important; height: 72px !important; }
+      .rounded-3xl, .rounded-xl, .rounded-full { border-radius: 1rem !important; }
+      .p-10, .p-8 { padding: 1.2rem !important; }
+      .gap-10 { gap: 1.2rem !important; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="w-full bg-header flex justify-between items-center px-4 sm:px-8 py-4 text-lg fixed top-0 left-0 right-0 z-50 shadow-lg">
+    <a href="#home" class="font-bold gradient-text text-xl md:text-2xl">العامري تك</a>
+    <div class="flex gap-3 sm:gap-6 items-center">
+      <a href="#home" class="nav-link active">الرئيسية</a>
+      <a href="#about" class="nav-link">من أنا</a>
+      <a href="#services" class="nav-link">الخدمات</a>
+      <a href="#contact" class="nav-link">تواصل</a>
+      <!-- زر الوضع الليلي/النهاري -->
+      <button id="themeToggle" aria-label="تبديل الوضع الليلي/النهاري" class="ml-2 text-xl focus:outline-none transition">
+        <i id="themeIcon" class="fa-solid fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- الصفحة الرئيسية -->
+  <section id="home" class="min-h-screen flex items-center justify-center pt-24">
+    <div class="bg-card rounded-3xl shadow-2xl px-4 py-8 sm:p-10 flex flex-col md:flex-row items-center gap-6 sm:gap-10 max-w-2xl w-full">
+      <!-- صورة تفاعلية PNG -->
+      <img src="img/working_3264760.png" alt="مهندس تفاعلي" class="img-animate w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40" />
+      <!-- نص وعناصر رئيسية -->
+      <div class="text-center md:text-right flex-1">
+        <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold gradient-text mb-3 flex items-center justify-center md:justify-end gap-2 sm:gap-3">
+          المهندس محمد العامري
+        </h1>
+        <p class="text-base sm:text-xl mb-6 sm:mb-8 text-[#AAAAAA] font-[Tajawal]">خبير الشبكات والسيرفرات وصيانة شاشات DASH</p>
+        <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center md:justify-end mb-4 sm:mb-6">
+          <a href="#contact" class="btn-main mb-2 sm:mb-0">طلب خدمة</a>
+          <a href="https://wa.me/966500000000" target="_blank" class="btn-main flex items-center gap-2">
+            <i class="fab fa-whatsapp text-xl"></i>
+            تواصل واتساب
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+   <!-- من أنا -->
+  <section id="about" class="py-12 sm:py-16 px-2 sm:px-4 bg-section text-center">
+    <img src="img/29c2f794868e539c5bcf24cc29d5cf9e.jpg" alt="محمد العامري" class="mx-auto mb-5 w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 rounded-full shadow-lg border-4" style="border-color: var(--main-accent2); object-fit:cover;">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-3 gradient-text">من أنا</h2>
+    <p class="max-w-xl mx-auto mb-4 sm:mb-6 text-base sm:text-lg" style="color:var(--main-muted)">
+      أنا محمد العامري، مهندس شبكات معتمد بخبرة تفوق 10 سنوات في إدارة السيرفرات وصيانة شاشات DASH. أقدّم حلولًا تقنية فعالة، سريعة، وآمنة للبيئات المنزلية والتجارية.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4 sm:gap-6 mt-4 sm:mt-6">
+      <div class="flex flex-col items-center card-hover border-2 rounded-xl p-3 sm:p-4 w-24 sm:w-32">
+        <i class="fa-solid fa-network-wired icon-animate text-lg sm:text-2xl mb-1 sm:mb-2" style="color:var(--main-accent2)"></i>
+        <span class="font-bold text-sm sm:text-base">CCNA</span>
+      </div>
+      <div class="flex flex-col items-center card-hover border-2 rounded-xl p-3 sm:p-4 w-24 sm:w-32">
+        <i class="fa-brands fa-microsoft icon-animate text-lg sm:text-2xl mb-1 sm:mb-2" style="color:var(--main-accent2)"></i>
+        <span class="font-bold text-sm sm:text-base">Mikrotik</span>
+      </div>
+      <div class="flex flex-col items-center card-hover border-2 rounded-xl p-3 sm:p-4 w-24 sm:w-32">
+        <i class="fa-solid fa-server icon-animate text-lg sm:text-2xl mb-1 sm:mb-2" style="color:var(--main-accent2)"></i>
+        <span class="font-bold text-sm sm:text-base">Server+</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- الخدمات -->
+  <section id="services" class="py-12 sm:py-14 px-2 sm:px-4 bg-[#1B1B1B]">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-12 gradient-text text-center">الخدمات</h2>
+    <div class="flex flex-wrap gap-4 sm:gap-6 justify-center">
+      <div class="card-hover border-2 rounded-xl w-64 sm:w-72 p-5 sm:p-8 flex flex-col items-center text-center transition">
+        <i class="fa-solid fa-wifi icon-animate text-3xl sm:text-4xl mb-2 sm:mb-3" style="color:var(--main-accent2)"></i>
+        <h3 class="font-bold text-lg sm:text-xl mb-1 sm:mb-2">الشبكات الذكية</h3>
+        <p class="text-[#AAAAAA] text-sm sm:text-base">إعداد الشبكات السلكية واللاسلكية للمنازل والمكاتب.</p>
+      </div>
+      <div class="card-hover border-2 rounded-xl w-64 sm:w-72 p-5 sm:p-8 flex flex-col items-center text-center transition">
+        <i class="fa-solid fa-server icon-animate text-3xl sm:text-4xl mb-2 sm:mb-3" style="color:var(--main-accent2)"></i>
+        <h3 class="font-bold text-lg sm:text-xl mb-1 sm:mb-2">السيرفرات والتحكم</h3>
+        <p class="text-[#AAAAAA] text-sm sm:text-base">تركيب وإدارة السيرفرات وأنظمة الحماية.</p>
+      </div>
+      <div class="card-hover border-2 rounded-xl w-64 sm:w-72 p-5 sm:p-8 flex flex-col items-center text-center transition">
+        <i class="fa-solid fa-tv icon-animate text-3xl sm:text-4xl mb-2 sm:mb-3" style="color:var(--main-accent2)"></i>
+        <h3 class="font-bold text-lg sm:text-xl mb-1 sm:mb-2">شاشات DASH</h3>
+        <p class="text-[#AAAAAA] text-sm sm:text-base">صيانة شاشات تلفزيون DASH بجميع أنواعها.</p>
+      </div>
+      <div class="card-hover border-2 rounded-xl w-64 sm:w-72 p-5 sm:p-8 flex flex-col items-center text-center transition">
+        <i class="fa-solid fa-video icon-animate text-3xl sm:text-4xl mb-2 sm:mb-3" style="color:var(--main-accent2)"></i>
+        <h3 class="font-bold text-lg sm:text-xl mb-1 sm:mb-2">أنظمة المراقبة</h3>
+        <p class="text-[#AAAAAA] text-sm sm:text-base">تركيب أنظمة مراقبة وتحكم ذكية.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- نموذج التواصل -->
+  <section id="contact" class="py-12 sm:py-16 px-2 sm:px-4 bg-section">
+    <h2 class="text-2xl sm:text-3xl font-bold gradient-text text-center mb-6 sm:mb-8">تواصل معنا</h2>
+    <form id="contactForm" class="max-w-lg mx-auto rounded-xl shadow-xl p-4 sm:p-8 flex flex-col gap-4 sm:gap-6 bg-card">
+      <input type="text" name="name" required placeholder="الاسم" class="input-custom py-3 px-5 rounded-lg" />
+      <input type="email" name="email" required placeholder="البريد الإلكتروني" class="input-custom py-3 px-5 rounded-lg" />
+      <select name="service" class="input-custom py-3 px-5 rounded-lg">
+        <option value="">نوع الخدمة (اختياري)</option>
+        <option value="شبكات">شبكات</option>
+        <option value="سيرفرات">سيرفرات</option>
+        <option value="شاشات DASH">شاشات DASH</option>
+        <option value="مراقبة">مراقبة</option>
+      </select>
+      <textarea name="message" rows="4" required placeholder="رسالتك" class="input-custom py-3 px-5 rounded-lg"></textarea>
+      <button type="submit" class="btn-main">إرسال</button>
+    </form>
+    <div id="formAlert" class="text-center mt-4 sm:mt-6 form-alert hidden">تم إرسال رسالتك بنجاح! سنرد عليك قريبًا.</div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer-custom py-4 sm:py-6 text-center mt-10">
+    <div class="mb-1 sm:mb-2">
+      <a href="#home" class="mx-1 sm:mx-2 underline">الرئيسية</a>
+      <a href="#about" class="mx-1 sm:mx-2 underline">من أنا</a>
+      <a href="#services" class="mx-1 sm:mx-2 underline">الخدمات</a>
+      <a href="#contact" class="mx-1 sm:mx-2 underline">تواصل</a>
+    </div>
+    <div class="mb-1 sm:mb-2 text-xs sm:text-base">
+      <span>📞 +967770370179</span> | 
+      <span>✉️ eng.alameri55@gmail.com</span>
+    </div>
+    <div class="text-xs sm:text-base">
+      جميع الحقوق محفوظة © نسيم العامري 2025
+    </div>
+  </footer>
+  <!-- زر واتساب ثابت -->
+  <a href="https://wa.me/+967770370179" class="whatsapp-fixed" title="تواصل عبر واتساب" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <!-- EmailJS (نموذج التواصل) -->
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+  <script>
+    (function(){
+      emailjs.init("5RpGO-_op6vmi4hAl"); // هذا هو الـ Public Key
+    })();
+
+    document.getElementById("contactForm").onsubmit = function(e) {
+      e.preventDefault();
+      emailjs.sendForm('service_2yl5tmd', 'template_mhop5ea', this)
+        .then(function() {
+          document.getElementById("formAlert").classList.remove("hidden");
+          document.getElementById("contactForm").reset();
+        }, function(error) {
+          alert("عذراً، حدث خطأ أثناء الإرسال.");
+          console.log(error);
+        });
+    };
+
+    // الوضع الليلي والنهاري
+    const themeBtn = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    function setTheme(isLight) {
+      document.body.classList.toggle('light', isLight);
+      themeIcon.className = isLight ? "fa-solid fa-sun" : "fa-solid fa-moon";
+    }
+    // حفظ الحالة في localStorage
+    function getSavedTheme() {
+      return localStorage.getItem('theme') === 'light';
+    }
+    setTheme(getSavedTheme());
+    themeBtn.addEventListener('click', function() {
+      const isLight = !document.body.classList.contains('light');
+      setTheme(isLight);
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+  </script>
+</body>
+</html>
